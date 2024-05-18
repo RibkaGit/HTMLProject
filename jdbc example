@@ -1,0 +1,15 @@
+import java.sql*
+public class jdbc example{
+    public static void main (String [] args){
+    try(connection con=DriverManager.getconnection("jdbc:mysql:localhost:3306/stud","root","root"));
+    statement st =con.createstatment();){
+        string sql="select from students where id=1101";
+        Resultset Rs=st.excute(sql);
+        while(Rs.next()){
+            System.out.println(Rs.getint(1) +" "+Rs.getstring(2) + " "+Rs.getstring(4) + " " +Rs.getstring(5) + " "+Rs.getstring(6));
+        }
+        catch(sqlException e){
+            System.out.println(e.getmessage());
+        }
+    }
+}
